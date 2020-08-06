@@ -1,10 +1,32 @@
 package ImplProject.entities;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Product {
     private int id;
     private String name;
     private String description;
     private double price;
+
+    public static Product of(ResultSet resultSet) {
+        try {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String description = resultSet.getString("description");
+            double price = resultSet.getFloat("price");
+            return new Product(id, name, description, price);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error while product of");
+        }
+    }
+
+    public Product(int id, String name, String description, double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
 
     public int getId() {
         return id;

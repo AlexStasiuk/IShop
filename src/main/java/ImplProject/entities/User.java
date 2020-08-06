@@ -22,8 +22,8 @@ public class User {
         try {
             int id = resultSet.getInt("id");
             String email = resultSet.getString("email");
-            String firstName = resultSet.getString("first_name");
-            String lastName = resultSet.getString("last_name");
+            String firstName = resultSet.getString("name");
+            String lastName = resultSet.getString("surname");
             String role = resultSet.getString("role");
             return new User(id, email, firstName, lastName, role);
         } catch (SQLException e) {
