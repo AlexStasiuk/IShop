@@ -1,4 +1,7 @@
-package entities;
+package ImplProject.entities;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class User {
     private int id;
@@ -6,6 +9,27 @@ public class User {
     private String name;
     private String surname;
     private String role;
+
+    public User(int id, String email, String name, String surname, String role) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.role = role;
+    }
+
+    public static User of(ResultSet resultSet) {
+        try {
+            int id = resultSet.getInt("id");
+            String email = resultSet.getString("email");
+            String firstName = resultSet.getString("first_name");
+            String lastName = resultSet.getString("last_name");
+            String role = resultSet.getString("role");
+            return new User(id, email, firstName, lastName, role);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error");
+        }
+    }
 
     public int getId() {
         return id;
@@ -46,6 +70,8 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+
 
     @Override
     public String toString() {

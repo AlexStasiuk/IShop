@@ -1,4 +1,4 @@
-package entities;
+package ImplProject.entities;
 
 public class Product {
     private int id;
