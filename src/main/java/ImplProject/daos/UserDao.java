@@ -2,6 +2,7 @@ package ImplProject.daos;
 
 import ImplProject.ConnectionUtil;
 import ImplProject.entities.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class UserDao implements CRUD<User> {
     public static final String UPDATING_BY_ID = "UPDATE users SET name = ?, surname = ?, role = ?, email = ? where id = ?";
     public static final String DELETE_BY_ID = "DELETE from users where id = ?";
     private Connection connection;
-
+    private static final Logger LOG = Logger.getLogger(UserDao.class);
     public UserDao() {
         connection = ConnectionUtil.getConnection();
     }
@@ -23,7 +24,7 @@ public class UserDao implements CRUD<User> {
     @Override
     public User create(User user) {
         try {
-
+            LOG.info("Creating user ...");
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, user.getName());
             preparedStatement.setString(2, user.getSurname());
@@ -35,10 +36,11 @@ public class UserDao implements CRUD<User> {
             generatedKeys.next();
             user.setId(generatedKeys.getInt(1));
 
-
+            LOG.info("User was created");
             return user;
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.error("Error while creating user");
             throw new RuntimeException("Error while inserting user");
         }
 

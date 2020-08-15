@@ -1,5 +1,11 @@
-E:\sasha\logos\java\IShop\src\main\java\entities\User.java
-E:\sasha\logos\java\IShop\src\main\java\ConnectionUtil.java
-E:\sasha\logos\java\IShop\src\main\java\entities\Bucket.java
-E:\sasha\logos\java\IShop\src\main\java\Main.java
-E:\sasha\logos\java\IShop\src\main\java\entities\Product.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\daos\ProductDao.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\entities\Bucket.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\services\UserService.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\daos\UserDao.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\ConnectionUtil.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\entities\User.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\daos\BucketDao.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\daos\CRUD.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\entities\Product.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\services\BucketService.java
+E:\sasha\logos\java\IShop\src\main\java\ImplProject\services\ProductService.java
