@@ -3,3 +3,39 @@
 2020-08-15 19:05:15 INFO  UserDao:129 - trying to get optional of user with email = fa
 2020-08-15 19:05:19 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
 2020-08-15 19:05:19 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:35 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:35 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:36 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:36 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:59 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:29:59 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:30:02 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:30:02 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:31:23 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:31:23 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:35:02 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:35:02 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 20:58:56 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 20:58:56 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:02:51 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 21:02:51 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 21:02:51 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:02:51 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:13:16 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 21:13:16 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:13:41 INFO  UserDao:30 - Creating user ...
+2020-08-15 21:13:41 INFO  UserDao:43 - User was created
+2020-08-15 21:55:08 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8
+2020-08-15 21:55:08 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8
+2020-08-15 21:55:08 INFO  UserDao:137 - failed to get optional of user with email = stasiuksasha8
+2020-08-15 21:55:08 INFO  UserDao:137 - failed to get optional of user with email = stasiuksasha8
+2020-08-15 21:55:25 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 21:55:25 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:55:32 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-15 21:55:32 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-15 21:59:23 INFO  UserDao:30 - Creating user ...
+2020-08-15 21:59:24 INFO  UserDao:43 - User was created
+2020-08-15 22:00:38 INFO  UserDao:30 - Creating user ...
+2020-08-15 22:00:39 INFO  UserDao:43 - User was created
+2020-08-15 22:01:08 INFO  UserDao:129 - trying to get optional of user with email = exemapalfj@ogaoj.com
+2020-08-15 22:01:08 INFO  UserDao:134 - get optional user with email = exemapalfj@ogaoj.com
