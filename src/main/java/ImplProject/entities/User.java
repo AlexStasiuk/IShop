@@ -10,12 +10,16 @@ public class User {
     private String surname;
     private String role;
 
-    public User(int id, String email, String name, String surname, String role) {
+
+    private String password;
+
+    public User(int id, String email, String name, String surname, String role, String password) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.role = role;
+        this.password = password;
     }
 
     public static User of(ResultSet resultSet) {
@@ -25,7 +29,8 @@ public class User {
             String firstName = resultSet.getString("name");
             String lastName = resultSet.getString("surname");
             String role = resultSet.getString("role");
-            return new User(id, email, firstName, lastName, role);
+            String password = resultSet.getString("password");
+            return new User(id, email, firstName, lastName, role, password);
         } catch (SQLException e) {
             throw new RuntimeException("Error");
         }
@@ -71,7 +76,13 @@ public class User {
         this.role = role;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
@@ -81,6 +92,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", role='" + role + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

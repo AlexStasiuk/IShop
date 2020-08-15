@@ -1,3 +1,7 @@
+ImplProject\servlets\LoginServlet.class
 ImplProject\services\UserService.class
 ImplProject\services\BucketService.class
+ContextListener.class
 ImplProject\services\ProductService.class
+ImplProject\servlets\RegistrationServlet.class
+ImplProject\entities\UserRole.class

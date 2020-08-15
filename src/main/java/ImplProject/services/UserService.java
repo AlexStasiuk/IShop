@@ -4,6 +4,7 @@ import ImplProject.daos.UserDao;
 import ImplProject.entities.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserService {
     private UserDao userDao;
@@ -39,5 +40,9 @@ public class UserService {
 
     public List<User> readAll() {
         return userDao.readAll();
+    }
+
+    public Optional<User> getByEmail(String email) {
+        return userDao.getByEmail(email);
     }
 }
