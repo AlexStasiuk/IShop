@@ -17,21 +17,38 @@ public class RegistrationServlet extends HttpServlet {
     private UserService userService = UserService.getInstance();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String firstName = request.getParameter("name");
-        String lastName = request.getParameter("surname");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         //Todo create Session
 
-        if (ObjectUtils.allNotNull(firstName, lastName, email, password)) {
-            userService.create(new User(0,firstName, lastName, email, UserRole.USER.toString(), password));
-            request.setAttribute("userEmail", email);
-            request.getRequestDispatcher("cabinet.jsp").forward(request, response);
+        if (ObjectUtils.allNotNull(name, surname, email, password)) {
+            userService.create(new User(0, email, name, surname, UserRole.USER.toString(), password));
+            response.setStatus(HttpServletResponse.SC_CREATED);
+            return;
         }
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        response.setContentType("text/plain");
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        String firstName = request.getParameter("name");
+//        String lastName = request.getParameter("surname");
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+//
+//        //Todo create Session
+//
+//        if (ObjectUtils.allNotNull(firstName, lastName, email, password)) {
+//            userService.create(new User(0,firstName, lastName, email, UserRole.USER.toString(), password));
+//            request.setAttribute("userEmail", email);
+//            request.getRequestDispatcher("cabinet.jsp").forward(request, response);
+//        }
+//
+//        request.getRequestDispatcher("index.jsp").forward(request, response);
+//    }
 }
