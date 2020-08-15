@@ -43,8 +43,7 @@ public class UserDao implements CRUD<User> {
             LOG.info("User was created");
             return user;
         } catch (SQLException e) {
-            e.printStackTrace();
-            LOG.error(String.format("Error while creating user with email %s",user.getEmail()));
+            LOG.error("Error while creating " + user.toString(), e);
             throw new RuntimeException("Error while inserting user");
         }
 
@@ -53,14 +52,17 @@ public class UserDao implements CRUD<User> {
     @Override
     public User read(int id) {
         try {
+            LOG.info(String.format("reading user with id = %d", id));
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_ID);
             preparedStatement.setObject(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             User user = User.of(resultSet);
+            LOG.info(String.format("User with id %d was read", id));
             return user;
         } catch (SQLException e) {
-            e.printStackTrace();
+
+            LOG.error("Error while getting user by id = " + id, e);
             throw new RuntimeException("Error while getting user by id = " + id);
         }
     }
@@ -68,6 +70,7 @@ public class UserDao implements CRUD<User> {
     @Override
     public void update(User user) {
         try {
+            LOG.info("trying to update user with id = " + user.getId());
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATING_BY_ID);
             preparedStatement.setObject(1, user.getName());
             preparedStatement.setObject(2, user.getSurname());
@@ -77,7 +80,9 @@ public class UserDao implements CRUD<User> {
             preparedStatement.setObject(6, user.getId());
 
             preparedStatement.executeUpdate();
+            LOG.info("user was updated");
         } catch (SQLException e) {
+            LOG.error("Error while updating user" + user.toString(), e);
             e.printStackTrace();
             throw new RuntimeException("Error while updating users");
         }
@@ -87,11 +92,14 @@ public class UserDao implements CRUD<User> {
     @Override
     public void delete(int id) {
         try {
+            LOG.info("trying delete user with id" + id);
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_ID);
             preparedStatement.setObject(1, id);
             preparedStatement.executeUpdate();
+            LOG.info("User with id = " + id + " deleted");
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.error("Error while deleting user by id = " + id, e);
             throw new RuntimeException("Error while deleting user by id = " + id);
         }
     }
@@ -99,6 +107,7 @@ public class UserDao implements CRUD<User> {
     @Override
     public List<User> readAll() {
         try {
+            LOG.info("trying to read all users");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SELECT_ALL);
 
@@ -106,28 +115,29 @@ public class UserDao implements CRUD<User> {
             while (resultSet.next()) {
                 users.add(User.of(resultSet));
             }
+            LOG.info("All users were read");
             return users;
         } catch (SQLException e) {
             e.printStackTrace();
+            LOG.error("Error while selecting all users", e);
             throw new RuntimeException("Error while selecting all users");
         }
     }
 
     public Optional<User> getByEmail(String email) {
         try {
+            LOG.info("trying to get optional of user with email = " + email);
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_EMAIL);
             preparedStatement.setObject(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                LOG.info("infoLog");
-                LOG.debug("debugLog");
-                LOG.error("ERorrLog");
-                LOG.warn("WarnLog");
-                LOG.fatal("FatallOg");
+                LOG.info("get optional user with email = " + email);
                 return Optional.of(User.of(resultSet));
             }
+            LOG.info("failed to get optional of user with email = " + email);
             return Optional.empty();
         } catch (SQLException e) {
+            LOG.error("Error while getting user by email=" + email, e);
             throw new RuntimeException("Error while getting user by email= " + email);
         }
     }
