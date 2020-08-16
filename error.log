@@ -39,3 +39,7 @@
 2020-08-15 22:00:39 INFO  UserDao:43 - User was created
 2020-08-15 22:01:08 INFO  UserDao:129 - trying to get optional of user with email = exemapalfj@ogaoj.com
 2020-08-15 22:01:08 INFO  UserDao:134 - get optional user with email = exemapalfj@ogaoj.com
+2020-08-16 14:22:51 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-16 14:22:51 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-16 14:22:52 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-16 14:22:52 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
