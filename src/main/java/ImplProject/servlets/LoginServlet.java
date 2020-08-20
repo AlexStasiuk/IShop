@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
         if (user.isPresent()) {
             HttpSession session = request.getSession(true);
             session.setAttribute("userName", user.get().getName());
+            session.setAttribute("userEmail", user.get().getEmail());
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
