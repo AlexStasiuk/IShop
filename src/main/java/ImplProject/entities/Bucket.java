@@ -13,16 +13,6 @@ public class Bucket {
     private int product_id;
     private Date dateTime;
 
-    @Override
-    public String toString() {
-        return "Bucket{" +
-                "id=" + id +
-                ", user_id=" + user_id +
-                ", product_id=" + product_id +
-                ", dateTime=" + dateTime +
-                '}';
-    }
-
     public static Bucket of(ResultSet resultSet) {
         try {
             int id = resultSet.getInt("id");
@@ -72,5 +62,14 @@ public class Bucket {
 
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
+    }
+    @Override
+    public String toString() {
+        return "Bucket{" +
+                "id=" + id +
+                ", user_id=" + user_id +
+                ", product_id=" + product_id +
+                ", dateTime=" + dateTime +
+                '}';
     }
 }

@@ -7,8 +7,16 @@ import java.util.List;
 
 public class BucketService {
     private BucketDao bucketDao;
+    private static BucketService bucketService;
 
-    public BucketService() {
+    public static BucketService getInstance() {
+        if (bucketService == null) {
+            bucketService = new BucketService();
+        }
+        return bucketService;
+    }
+
+    private BucketService() {
         bucketDao = new BucketDao();
     }
 
