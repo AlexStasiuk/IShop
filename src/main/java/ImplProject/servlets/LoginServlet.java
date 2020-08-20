@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -29,11 +30,16 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-        Optional<User> user = userService.getByEmail(email);
-        if (user.isPresent() && user.get().getPassword().equals(password)) {
+
+        Optional<User> user = userService.getByEmailAndPassword(email, password);
+
+        if (user.isPresent()) {
+            HttpSession session = request.getSession(true);
+            session.setAttribute("userName", user.get().getName());
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
+
         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
 }
