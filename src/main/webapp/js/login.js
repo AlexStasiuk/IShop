@@ -10,18 +10,18 @@ $("button.register")
     .click(
         function (event) {
             event.preventDefault();
-            var name = $("form.register-form input.name").val();
-            var surname = $("form.register-form input.surname").val();
+            var firstName = $("form.register-form input.firstName").val();
+            var lastName = $("form.register-form input.lastName").val();
             var email = $("form.register-form input.email").val();
             var password = $("form.register-form input.registerPass").val();
-            if (name == '' || surname == '' || email == '' || password == '') {
+            if (firstName == '' || lastName == '' || email == '' || password == '') {
                 alert("Please fill all fields...!!!!!!");
             } else if ((password.length) < 8) {
-                alert("Password should at least 8 character in length...!!!!!!");
+                alert("Password should atleast 8 character in length...!!!!!!");
             } else {
                 var userRegistration = {
-                    name,
-                    surname,
+                    firstName,
+                    lastName,
                     email,
                     password
                 };
@@ -33,11 +33,11 @@ $("button.register")
                             $("form")[1].reset();
                             loginRegisterSwitch();
                         } else {
-                            alert("error while creating a user1");
+                            alert("error while creating a user");
                         }
                     })
                     .fail(function () {
-                        alert("error while creating a user1");
+                        alert("error while creating a user");
                     });
                 ;
             }
@@ -61,13 +61,13 @@ $("button.login").click(function (event) {
         $.post("login", userLogin)
             .done(function (data, textStatus, xhr) {
                 if (xhr.status === 200) {
-                    window.location = "http://localhost:8080/IShop/cabinet.jsp";
+                    window.location = window.origin + "/IShop/cabinet.jsp";
                 } else {
-                    alert("error while authorizing the user1");
+                    alert("error while authorizing the user");
                 }
             })
             .fail(function () {
-                alert("error while authorizing the user2");
+                alert("error while authorizing the user");
             });
     }
 });

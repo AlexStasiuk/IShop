@@ -7,6 +7,8 @@ import ImplProject.entities.Product;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class ProductDao implements CRUD<Product> {
     private static final String INSERT_INTO = "INSERT into products (name, description, price) values(?,?,?)";
@@ -14,6 +16,8 @@ public class ProductDao implements CRUD<Product> {
     private static final String DELETE_BY_ID = "DELETe from products where id = ?";
     private static final String UPDATE_BY_ID = "UPDATE products SET name = ?, description = ?, price = ? where id = ?";
     private static final String SELECT_ALL = "SELECT * from products";
+    private static  String READ_ALL_IN = "select * from products where id in ";
+
     private Connection connection;
 
     public ProductDao() {
@@ -100,5 +104,28 @@ public class ProductDao implements CRUD<Product> {
             e.printStackTrace();
             throw new RuntimeException("Error while select all products");
         }
+    }
+
+    public List<Product> readByIds(Set<Integer> productIds) {
+        PreparedStatement preparedStatement;
+        List<Product> productRecords = new ArrayList<>();
+        try {
+
+            String ids = productIds.stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(","));
+
+            String query = String.format("%s (%s)", READ_ALL_IN, ids);
+            preparedStatement = connection.prepareStatement(query);
+
+            ResultSet result = preparedStatement.executeQuery();
+            while (result.next()) {
+                productRecords.add(Product.of(result));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return productRecords;
     }
 }

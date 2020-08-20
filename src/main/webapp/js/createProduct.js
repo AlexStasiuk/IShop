@@ -12,7 +12,7 @@ $("button.createProduct")
                 price: price
             };
 //add validation
-            $.post("product", product)
+            $.post("api/products", product)
                 .done(function (data, textStatus, xhr) {
                     alert('Success');
                     $("form")[0].reset();

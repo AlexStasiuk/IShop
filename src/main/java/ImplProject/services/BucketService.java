@@ -36,6 +36,9 @@ public class BucketService {
         bucketDao.delete(id);
     }
 
+    public List<Bucket> readAllByUserId(int userId) {
+        return bucketDao.readAllByUserId(userId);
+    }
     public List<Bucket> readAll() {
         return bucketDao.readAll();
     }

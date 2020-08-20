@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Bucket {
@@ -18,7 +19,7 @@ public class Bucket {
             int id = resultSet.getInt("id");
             int user_id = resultSet.getInt("user_id");
             int product_id = resultSet.getInt("product_id");
-            Date dateTime = resultSet.getTime("dateTime");
+            Date dateTime = resultSet.getDate("datetime");
             return new Bucket(id, user_id, product_id, dateTime);
         } catch (SQLException e) {
             throw new RuntimeException("Error while product of");
@@ -71,5 +72,21 @@ public class Bucket {
                 ", product_id=" + product_id +
                 ", dateTime=" + dateTime +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bucket)) return false;
+        Bucket bucket = (Bucket) o;
+        return getId() == bucket.getId() &&
+                getUser_id() == bucket.getUser_id() &&
+                getProduct_id() == bucket.getProduct_id() &&
+                getDateTime().equals(bucket.getDateTime());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getUser_id(), getProduct_id(), getDateTime());
     }
 }

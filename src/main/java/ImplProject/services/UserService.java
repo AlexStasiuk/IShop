@@ -2,6 +2,7 @@ package ImplProject.services;
 
 import ImplProject.daos.UserDao;
 import ImplProject.entities.User;
+import ImplProject.entities.UserRole;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,7 @@ public class UserService {
                 .setName(name)
                 .setPassword(password)
                 .setSurname(surname)
+                .setRole(UserRole.USER.name())
                 .build());
     }
 
