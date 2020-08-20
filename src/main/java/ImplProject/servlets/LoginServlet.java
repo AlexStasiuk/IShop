@@ -30,33 +30,10 @@ public class LoginServlet extends HttpServlet {
         }
 
         Optional<User> user = userService.getByEmail(email);
-        // Todo move to service
         if (user.isPresent() && user.get().getPassword().equals(password)) {
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }
         response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
-
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//
-//        String email = request.getParameter("email");
-//        String password = request.getParameter("password");
-//
-//        if (!ObjectUtils.allNotNull(email, password)) {
-//            request.getRequestDispatcher("login.jsp").forward(request, response);
-//            return;
-//        }
-//
-//        Optional<User> user = userService.getByEmail(email);
-//
-//        if (user.isPresent() && user.get().getPassword().equalsIgnoreCase(password)) {
-//            request.setAttribute("userEmail", email);
-//            request.getRequestDispatcher("cabinet.jsp").forward(request, response);
-//            return;
-//        }
-//        // Todo Redirect?
-//        request.getRequestDispatcher("login.jsp").forward(request, response);
-//    }
 }

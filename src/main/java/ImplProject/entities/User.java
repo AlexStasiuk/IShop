@@ -13,24 +13,81 @@ public class User {
 
     private String password;
 
-    public User(int id, String email, String name, String surname, String role, String password) {
-        this.id = id;
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.role = role;
-        this.password = password;
+    public User() {
     }
+
+
+    public static class Builder {
+        private int id;
+        private String email;
+        private String name;
+        private String surname;
+        private String role;
+        private String password;
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setSurname(String surname) {
+            this.surname = surname;
+            return this;
+        }
+
+        public Builder setRole(String role) {
+            this.role = role;
+            return this;
+        }
+
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public User build() {
+            User user = new User();
+            user.setId(id);
+            user.setEmail(email);
+            user.setName(name);
+            user.setSurname(surname);
+            user.setRole(role);
+            user.setPassword(password);
+
+            return user;
+        }
+    }
+    public static Builder builder() {
+        return new Builder();
+    }
+
 
     public static User of(ResultSet resultSet) {
         try {
             int id = resultSet.getInt("id");
             String email = resultSet.getString("email");
-            String firstName = resultSet.getString("name");
-            String lastName = resultSet.getString("surname");
+            String name = resultSet.getString("name");
+            String surname = resultSet.getString("surname");
             String role = resultSet.getString("role");
             String password = resultSet.getString("password");
-            return new User(id, email, firstName, lastName, role, password);
+            return User.builder()
+                    .setId(id)
+                    .setEmail(email)
+                    .setName(name)
+                    .setSurname(surname)
+                    .setRole(role)
+                    .setPassword(password)
+                    .build();
         } catch (SQLException e) {
             throw new RuntimeException("Error");
         }
@@ -73,6 +130,9 @@ public class User {
     }
 
     public void setRole(String role) {
+        if(role == null){
+           this.role = UserRole.USER.name();
+        }
         this.role = role;
     }
 

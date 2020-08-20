@@ -22,8 +22,13 @@ public class UserService {
         return userService;
     }
 
-    public User create(User t) {
-        return userDao.create(t);
+    public User create(String email, String name, String surname, String password) {
+        return userDao.create(User.builder()
+                .setEmail(email)
+                .setName(name)
+                .setPassword(password)
+                .setSurname(surname)
+                .build());
     }
 
     public User read(int id) {

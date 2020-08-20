@@ -43,3 +43,5 @@
 2020-08-16 14:22:51 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
 2020-08-16 14:22:52 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
 2020-08-16 14:22:52 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
+2020-08-20 18:10:56 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-20 18:10:56 INFO  UserDao:134 - get optional user with email = stasiuksasha8@gmail.com
