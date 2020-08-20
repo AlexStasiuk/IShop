@@ -7,11 +7,17 @@ import java.util.List;
 
 public class ProductService {
     private ProductDao productDao;
+    private static ProductService productService;
 
-    public ProductService() {
+    private ProductService() {
         productDao = new ProductDao();
     }
-
+    public static ProductService getInstance(){
+        if(productService == null){
+            productService = new ProductService();
+        }
+        return  productService;
+    }
     public Product create(Product t) {
         return productDao.create(t);
     }
