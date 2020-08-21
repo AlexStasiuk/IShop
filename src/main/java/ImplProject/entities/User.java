@@ -2,6 +2,7 @@ package ImplProject.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class User {
     private int id;
@@ -154,5 +155,23 @@ public class User {
                 ", role='" + role + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getId() == user.getId() &&
+                getEmail().equals(user.getEmail()) &&
+                getName().equals(user.getName()) &&
+                getSurname().equals(user.getSurname()) &&
+                getRole().equals(user.getRole()) &&
+                getPassword().equals(user.getPassword());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getEmail(), getName(), getSurname(), getRole(), getPassword());
     }
 }

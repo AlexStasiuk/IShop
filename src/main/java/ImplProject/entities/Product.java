@@ -2,6 +2,7 @@ package ImplProject.entities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class Product {
     private int id;
@@ -74,5 +75,21 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+        Product product = (Product) o;
+        return getId() == product.getId() &&
+                Double.compare(product.getPrice(), getPrice()) == 0 &&
+                getName().equals(product.getName()) &&
+                getDescription().equals(product.getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getDescription(), getPrice());
     }
 }

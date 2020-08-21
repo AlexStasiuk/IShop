@@ -4,6 +4,7 @@ import ImplProject.daos.ProductDao;
 import ImplProject.entities.Product;
 
 import java.util.List;
+import java.util.Set;
 
 public class ProductService {
     private ProductDao productDao;
@@ -36,5 +37,8 @@ public class ProductService {
 
     public List<Product> readAll() {
         return productDao.readAll();
+    }
+    public List<Product> readByIds(Set<Integer> productIds) {
+        return productDao.readByIds(productIds);
     }
 }
