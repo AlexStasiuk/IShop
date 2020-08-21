@@ -29,7 +29,10 @@ public class BucketController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String productId = req.getParameter("productId");
-        int userId = (int) req.getSession().getAttribute("userId");
+        int userId = 10;
+
+        System.out.println(req.getSession().getId());
+        System.out.println( req.getSession().getAttribute("userId"));
 
         bucketService.create(new Bucket(0,userId, Integer.parseInt(productId), new Date()));
     }

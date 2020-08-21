@@ -575,3 +575,17 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'role' cannot be null
 2020-08-21 02:26:12 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
 2020-08-21 02:38:47 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
 2020-08-21 02:38:47 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-21 03:22:46 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-21 03:22:46 INFO  UserDao:137 - failed to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-21 03:22:53 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-21 03:22:53 INFO  UserDao:137 - failed to get optional of user with email = stasiuksasha8@gmail.com
+2020-08-21 03:22:59 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
+2020-08-21 03:22:59 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-21 03:38:49 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
+2020-08-21 03:38:49 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-21 04:19:56 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
+2020-08-21 04:19:56 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-21 04:34:47 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
+2020-08-21 04:34:47 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-21 04:42:46 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
+2020-08-21 04:42:46 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com

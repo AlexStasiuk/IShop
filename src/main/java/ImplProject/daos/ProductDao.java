@@ -115,6 +115,7 @@ public class ProductDao implements CRUD<Product> {
                     .map(String::valueOf)
                     .collect(Collectors.joining(","));
 
+
             String query = String.format("%s (%s)", READ_ALL_IN, ids);
             preparedStatement = connection.prepareStatement(query);
 

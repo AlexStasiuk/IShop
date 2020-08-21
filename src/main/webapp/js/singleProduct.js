@@ -1,13 +1,13 @@
 $("button.add-to-bucket").click(function (event) {
     event.preventDefault();
 
-    var productId = $("button.add-to-bucket").attr("product-id");
+    var productId = $("button.add-to-bucket").attr("product_id");
 
-    $.post("api/buckets", {productId})
+    $.post("api/buckets", productId,)
         .done(function () {
             alert("Product is being successfully added to bucket");
         })
         .fail(function () {
-            alert("error");
+            alert("error1");
         });
 });
