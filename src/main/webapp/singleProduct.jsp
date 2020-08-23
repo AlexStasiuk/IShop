@@ -19,7 +19,7 @@
 </p>
 <p>Product price: <%= request.getAttribute("productP")%> грн</p>
 
-<button type="button" class="btn btn-primary add-to-bucket" product-id="<%=request.getAttribute("productId")%>">
+<button type="button" class="btn btn-primary add-to-bucket" product_id="<%=request.getAttribute("productId")%>">
     Add to bucket
 </button>
 

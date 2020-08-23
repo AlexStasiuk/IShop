@@ -6,10 +6,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -37,7 +34,10 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("userName", user.get().getName());
             session.setAttribute("userEmail", user.get().getEmail());
-            session.setAttribute("userId", user.get().getId());
+            session.setAttribute("userId", String.valueOf(user.get().getId()));
+
+            response.addCookie(new Cookie("userId", String.valueOf(user.get().getId())));
+
             response.setStatus(HttpServletResponse.SC_OK);
             return;
         }

@@ -1,6 +1,5 @@
 package ImplProject.servlets;
 
-
 import ImplProject.BucketProductDto;
 import ImplProject.entities.Bucket;
 import ImplProject.entities.Product;
@@ -9,14 +8,12 @@ import ImplProject.services.ProductService;
 import com.google.gson.Gson;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -29,12 +26,15 @@ public class BucketController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String productId = req.getParameter("productId");
-        int userId = 10;
-
-        System.out.println(req.getSession().getId());
-        System.out.println( req.getSession().getAttribute("userId"));
-
-        bucketService.create(new Bucket(0,userId, Integer.parseInt(productId), new Date()));
+        //int userId = Integer.parseInt((String) req.getSession().getAttribute("userId"));
+        Cookie[] cookies = req.getCookies();
+        String userIdValue = "";
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equalsIgnoreCase("userId")) {
+                userIdValue = cookies[i].getValue();
+            }
+        }
+        bucketService.create(new Bucket(0, Integer.parseInt(userIdValue), Integer.parseInt(productId), new Date()));
     }
 
     @Override
@@ -87,4 +87,9 @@ public class BucketController extends HttpServlet {
         }
 
     }
+
+    public int getUserById(HttpServletRequest req, HttpServletResponse resp) {
+return 0;
+    }
+
 }
