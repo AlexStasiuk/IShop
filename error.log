@@ -659,3 +659,7 @@ java.sql.SQLIntegrityConstraintViolationException: Column 'role' cannot be null
 2020-08-23 20:47:40 INFO  UserDao:134 - get optional user with email = s
 2020-08-23 20:57:29 INFO  UserDao:129 - trying to get optional of user with email = stasiuksasha@gmail.com
 2020-08-23 20:57:29 INFO  UserDao:134 - get optional user with email = stasiuksasha@gmail.com
+2020-08-23 21:12:54 INFO  UserDao:129 - trying to get optional of user with email = s
+2020-08-23 21:12:54 INFO  UserDao:134 - get optional user with email = s
+2020-08-23 21:22:11 INFO  UserDao:129 - trying to get optional of user with email = s
+2020-08-23 21:22:11 INFO  UserDao:134 - get optional user with email = s

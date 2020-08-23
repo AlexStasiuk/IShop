@@ -27,20 +27,14 @@ public class BucketController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String productId = req.getParameter("productId");
         //int userId = Integer.parseInt((String) req.getSession().getAttribute("userId"));
-        Cookie[] cookies = req.getCookies();
-        String userIdValue = "";
-        for (int i = 0; i < cookies.length; i++) {
-            if (cookies[i].getName().equalsIgnoreCase("userId")) {
-                userIdValue = cookies[i].getValue();
-            }
-        }
-        bucketService.create(new Bucket(0, Integer.parseInt(userIdValue), Integer.parseInt(productId), new Date()));
+        int userId = getUserById(req);
+        bucketService.create(new Bucket(0, userId, Integer.parseInt(productId), new Date()));
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException {
-        int userId = (int) req.getSession().getAttribute("userId");
-
+        //int userId = (int) req.getSession().getAttribute("userId");
+        int userId = getUserById(req);
         List<Bucket> buckets = bucketService.readAllByUserId(userId);
 
         Set<Integer> productIds = buckets.stream()
@@ -72,9 +66,9 @@ public class BucketController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String bucketIdParameter = req.getParameter("bucketId");
-        String userIdParameter = req.getParameter("userId");
+//        String userIdParameter = req.getParameter("userId");
 
-        int userId = Integer.parseInt(userIdParameter);
+        int userId = getUserById(req);
         int bucketId = Integer.parseInt(bucketIdParameter);
 
         Bucket bucket = bucketService.read(bucketId);
@@ -88,8 +82,15 @@ public class BucketController extends HttpServlet {
 
     }
 
-    public int getUserById(HttpServletRequest req, HttpServletResponse resp) {
-return 0;
+    public int getUserById(HttpServletRequest req) {
+        Cookie[] cookies = req.getCookies();
+        String userIdValue = "";
+        for (int i = 0; i < cookies.length; i++) {
+            if (cookies[i].getName().equalsIgnoreCase("userId")) {
+                userIdValue = cookies[i].getValue();
+            }
+        }
+        return Integer.parseInt(userIdValue);
     }
 
 }
