@@ -19,7 +19,7 @@ public class JspFilter implements Filter {
 
         String requestURI = httpRequest.getRequestURI();
         if (requestURI.endsWith(".jsp")) {
-            //httpResponse.sendRedirect(httpRequest.getContextPath());
+            httpResponse.sendRedirect(httpRequest.getContextPath());
             return;
         }
 

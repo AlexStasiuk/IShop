@@ -11,10 +11,7 @@ import java.io.IOException;
 public class CabinetServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("cabinet.jsp").forward(request, response);
     }
-
 }
