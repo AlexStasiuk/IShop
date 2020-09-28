@@ -60,8 +60,8 @@ $("button.login").click(function (event) {
         };
         $.post("login", userLogin)
             .done(function (data, textStatus, xhr) {
-                if (xhr.status === 200) {
-                    window.location = window.origin + "/IShop/cabinet.jsp";
+                if (xhr.status === 201) {
+                    window.location = window.origin + "/IShop/cabinet";
                 } else {
                     alert("error while authorizing the user");
                 }

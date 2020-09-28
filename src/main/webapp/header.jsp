@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link rel="stylesheet" href="css/header.css">
 
 <div id="wrapper" class="animate">
@@ -11,15 +14,17 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav animate side-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/cabinet.jsp">Home
+                    <a class="nav-link" href="${pageContext.request.contextPath}/cabinet">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                <c:if test="${sessionScope['userRole'] == \"ADMIN\"}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/create-product">Add product</a>
+                    </li>
+                </c:if>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/createProduct.jsp">Add product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/bucket.jsp">Bucket</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/bucket">Bucket</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-md-auto d-md-flex">
