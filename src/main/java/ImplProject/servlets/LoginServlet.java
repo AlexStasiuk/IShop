@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userName", user.get().getName());
             session.setAttribute("userEmail", user.get().getEmail());
             session.setAttribute("userId", String.valueOf(user.get().getId()));
+            session.setAttribute("userRole",user.get().getRole());
 
             response.addCookie(new Cookie("userId", String.valueOf(user.get().getId())));
 
